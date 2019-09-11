@@ -104,27 +104,48 @@ bindkey "[C" forward-word
 bindkey "^[a" beginning-of-line
 bindkey "^[e" end-of-line
 
+# Sudo -> Please :)
+alias please="sudo"
+
 # Anaconda PATH
 export PATH="/Users/ivan/Documents/Applications/anaconda3/bin:$PATH"
+
+# C++ PATH
+export CPATH=/Library/Developer/CommandLineTools/usr/include/c++/v1
 
 # Go PATH
 export GOPATH=$HOME/go
 export PATH=$GOPATH/bin:$PATH
 
-# ELasticsearch name (with VPN only)
+# AWS cli path
+export PATH=$HOME/.local/bin:$PATH
+
+# Elasticsearch name (with VPN only)
 export ES_FULL=managed-elasticsearch-scraping-data.default.svc.cluster.local:80
 export ES=managed-elasticsearch-scraping-data:80
 
 # Prompt settings
 PROMPT="%{$fg[yellow]%}%n@%{$fg[yellow]%}%m:%{$reset_color%} ${PROMPT}"
 
-# Set Santiment working directory shortcut
+# Set Santiment and personal working directories shortcuts
 export SAN=~/Documents/Work/santiment
 alias san="$SAN"
+export LAB=~/Documents/Laboratory/Projects
+alias lab="$LAB"
 
 # Jupyter aliases
 alias jn="cd --; jupyter notebook"
 alias jl="cd --; jupyter lab"
+
+# Clickhouse aliases
+alias chstage="docker run -it --rm --network host yandex/clickhouse-client:19.1.6 --host clickhouse.default.svc.cluster.local"
+alias chlocal="docker run -it --rm --network host yandex/clickhouse-client:19.1.6 --host 127.0.0.1"
+
+# Git aliases
+# alais g="git" - is part of the git plugin
+alias gs="git status"
+alias ga="git add"
+alias gcm="git commit -m "
 
 # Docker aliases
 alias d="docker"
@@ -139,6 +160,17 @@ alias dps="docker ps"
 # Kubernetes aliases
 alias kp="cd --; kubectl proxy"
 alias kgp="kubectl get pods"
+alias kgj="kubectl get jobs"
+alias kgcj="kubectl get cronjobs"
 alias kdp="kubectl delete pod"
 alias kdj="kubectl delete job"
 alias kdcj="kubectl delete cronjob"
+alias klogs="kubectl logs"
+
+# Other aliases
+alias hgrep="history | grep"
+# timestamps_1d shows the current timestamp and the timestamp for the moment which was 24h ago in a convenient way so it can be pasted into REST requests
+alias timestamps_1d="printf 'from_timestamp=%s' $(expr $(date +%s) - 86400); printf '&to_timestamp=%s\n' $(date +%s)"
+alias t1d="timestamps_1d"
+alias timestamps_1h="printf 'from_timestamp=%s' $(expr $(date +%s) - 3600); printf '&to_timestamp=%s\n' $(date +%s)"  # does the same for 1 hour
+alias t1h="timestamps_1h"
