@@ -2,7 +2,7 @@
 export PATH=$HOME/bin:/usr/local/bin:$PATH
 
 # Path to your oh-my-zsh installation.
-export ZSH="/Users/ivanklimuk/.oh-my-zsh"
+export ZSH="$HOME/.oh-my-zsh"
 
 # Set name of the theme to load. Optionally, if you set this to "random"
 # it'll load a random theme each time that oh-my-zsh is loaded.
@@ -108,7 +108,7 @@ bindkey "^[e" end-of-line
 alias please="sudo"
 
 # Anaconda PATH
-export PATH="/Users/ivanklimuk/Applications/anaconda3/bin:$PATH"
+export PATH="$HOME/Applications/anaconda3/bin:$PATH"
 
 # C++ PATH
 export CPATH=/Library/Developer/CommandLineTools/usr/include/c++/v1
