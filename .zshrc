@@ -1,8 +1,8 @@
 # If you come from bash you might have to change your $PATH.
-# export PATH=$HOME/bin:/usr/local/bin:$PATH
+export PATH=$HOME/bin:/usr/local/bin:$PATH
 
 # Path to your oh-my-zsh installation.
-export ZSH="/Users/ivan/.oh-my-zsh"
+export ZSH="/Users/ivanklimuk/.oh-my-zsh"
 
 # Set name of the theme to load. Optionally, if you set this to "random"
 # it'll load a random theme each time that oh-my-zsh is loaded.
@@ -74,7 +74,7 @@ source $ZSH/oh-my-zsh.sh
 # export MANPATH="/usr/local/man:$MANPATH"
 
 # You may need to manually set your language environment
-# export LANG=en_US.UTF-8
+export LANG=en_US.UTF-8
 
 # Preferred editor for local and remote sessions
 # if [[ -n $SSH_CONNECTION ]]; then
@@ -108,7 +108,7 @@ bindkey "^[e" end-of-line
 alias please="sudo"
 
 # Anaconda PATH
-export PATH="/Users/ivan/Documents/Applications/anaconda3/bin:$PATH"
+export PATH="/Users/ivanklimuk/Applications/anaconda3/bin:$PATH"
 
 # C++ PATH
 export CPATH=/Library/Developer/CommandLineTools/usr/include/c++/v1
@@ -117,29 +117,22 @@ export CPATH=/Library/Developer/CommandLineTools/usr/include/c++/v1
 export GOPATH=$HOME/go
 export PATH=$GOPATH/bin:$PATH
 
-# AWS cli path
-export PATH=$HOME/.local/bin:$PATH
-
-# Elasticsearch name (with VPN only)
-export ES_FULL=managed-elasticsearch-scraping-data.default.svc.cluster.local:80
-export ES=managed-elasticsearch-scraping-data:80
-
 # Prompt settings
 PROMPT="%{$fg[yellow]%}%n@%{$fg[yellow]%}%m:%{$reset_color%} ${PROMPT}"
 
-# Set Santiment and personal working directories shortcuts
-export SAN=~/Documents/Work/santiment
-alias san="$SAN"
-export LAB=~/Documents/Laboratory/Projects
-alias lab="$LAB"
-
 # Jupyter aliases
-alias jn="cd --; jupyter notebook"
-alias jl="cd --; jupyter lab"
+alias jnh="cd --; jupyter notebook"
+alias jlh="cd --; jupyter lab"
+alias jn="jupyter notebook"
+alias jl="jupyter lab"
+alias jl9="jupyter lab --port=8889"
+
+# Python
+alias python3="python"
+alias py="python"
 
 # Clickhouse aliases
-alias chstage="docker run -it --rm --network host yandex/clickhouse-client:19.1.6 --host clickhouse.default.svc.cluster.local"
-alias chlocal="docker run -it --rm --network host yandex/clickhouse-client:19.1.6 --host 127.0.0.1"
+alias chlocal="docker run -it --rm --network host yandex/clickhouse-client:20.1.12.86 --host 127.0.0.1"
 
 # Git aliases
 # alais g="git" - is part of the git plugin
@@ -169,8 +162,3 @@ alias klogs="kubectl logs"
 
 # Other aliases
 alias hgrep="history | grep"
-# timestamps_1d shows the current timestamp and the timestamp for the moment which was 24h ago in a convenient way so it can be pasted into REST requests
-alias timestamps_1d="printf 'from_timestamp=%s' $(expr $(date +%s) - 86400); printf '&to_timestamp=%s\n' $(date +%s)"
-alias t1d="timestamps_1d"
-alias timestamps_1h="printf 'from_timestamp=%s' $(expr $(date +%s) - 3600); printf '&to_timestamp=%s\n' $(date +%s)"  # does the same for 1 hour
-alias t1h="timestamps_1h"
